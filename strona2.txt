@@ -1,0 +1,8 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	Strona 2
+</body>
+</html>
