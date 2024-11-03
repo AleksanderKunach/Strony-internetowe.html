@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .calculator {
+            border: 1px solid black;
+            border-radius: 50px;
+            height: 800px;
+            width: 1000px;
+            margin: 20px auto;
+            background-color: grey;
+        }
+        .screen {
+            width: 75%;
+            height: 15%;
+            background-color: rgb(5, 125, 253);
+            margin: 10px auto 0;
+            padding: 10px;
+            font-size: 50px;
+            text-align: right;
+        }
+        .keyboard {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .button {
+            width: 22%;
+            height: 100px;
+            border: 3px solid red;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 10px;
+            margin-top: 5px;
+            background-color: green;
+        }
+        .button button {
+            width: 100%;
+            height: 100%;
+            font-size: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Kalkulator przy użyciu JavaScript</h1>
+    <div class="calculator">
+        <div class="screen"> <input style="height: 100px; border: none;" type="text" id="screen" class="screen" readonly></div> 
+        <div class="keyboard">  
+            <div class="button"><button onclick="addChar(7)">7</button></div>
+            <div class="button"><button onclick="addChar(8)">8</button></div>
+            <div class="button"><button onclick="addChar(9)">9</button></div>
+            <div class="button"><button onclick="addChar('+')">+</button></div>
+            <div class="button"><button onclick="addChar(4)">4</button></div>
+            <div class="button"><button onclick="addChar(5)">5</button></div>
+            <div class="button"><button onclick="addChar(6)">6</button></div>
+            <div class="button"><button onclick="addChar('/')">/</button></div>
+            <div class="button"><button onclick="addChar(1)">1</button></div>
+            <div class="button"><button onclick="addChar(2)">2</button></div>
+            <div class="button"><button onclick="addChar(3)">3</button></div>
+            <div class="button"><button onclick="addChar('*')">*</button></div>
+            <div class="button"><button onclick="addChar(0)">0</button></div> 
+            <div class="button"><button onclick="wyczysc()">C</button></div> 
+            <div class="button"><button onclick="oblicz()">=</button></div>
+            <div class="button"><button onclick="addChar('-')">-</button></div>
+        </div>      
+    </div>
+</body>
+<script>
+    var wynik = "";
+    console.log(wynik);
+    document.getElementById("screen").value = "0";
+    function addChar(znak) {
+        wynik += znak;
+        document.getElementById("screen").value = wynik; // Wyświetla bieżący wynik na ekranie
+    }
+    function oblicz() {
+        console.log(wynik);
+        wynik = eval(wynik).toString();
+        document.getElementById("screen").value = wynik;
+    }
+    function wyczysc() {
+        wynik = ""; 
+        document.getElementById("screen").value = "0"; 
+    }
+</script>
+</html>
