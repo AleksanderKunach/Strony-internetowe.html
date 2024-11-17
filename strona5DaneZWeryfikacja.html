@@ -1,0 +1,86 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	
+</head>
+<style> 
+*{
+	box-sizing: border-box;
+	font-size: 30px;
+}
+.container{
+	width: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+.container>*{
+	width: 50%;
+
+}
+.button{
+	background-color:white;
+}
+</style>
+<body>
+	<h1 style="text-align: center;"> Formularz danych</h1>
+	<form id="formularz" onsubmit="return validateForm()">
+	<div class="container">
+		<label for="name" > Podaj imie </label>
+		<input type="text" name="tekstowe1" required><br>
+		<label for="name"> Podaj nazwisko </label>
+		<input type="text" name="tekstowe2" required><br>
+		<label for="name"> Podaj ulicę </label>
+		<input type="text" name="adresowe1"><br>
+		<label for="name"> Podaj dom </label>
+		<input type="text" name="adresowe2"><br>
+		<label for="name"> Podaj mieszkanie </label>
+		<input type="text" name="adresowe3"><br>
+		<label for="name"> Podaj telefon </label>
+		<input type="number" ><br>
+		<label for="name"> Podaj datę urodzenia </label>
+		<input type="date" name="dataur"><br>
+		<label for="name"> Podaj prawo jazdy </label>
+		<input type="checkbox" style="margin:0">
+		<label for="name"> Podaj hasło </label>
+		<input type="password"><br>
+		<label for="name"> Podaj płeć </label>
+		<select> <option> Kobieta</option><option> Mężczyzna</option> </select> <br>
+		<label for="name"> Podaj miasto </label>
+		<input type="text" name="lokacja1"><br>
+		<label for="name"> Podaj państwo </label>
+		<input type="text" name="lokacja2"><br>
+		<label class="button" for="name" style="text-align: right;"><button type="submit", style="background-color: green;"> Submit</button>  </label>
+	</div>	
+	</form>
+	<script>
+		function validateForm() {
+  let imie = document.forms["formularz"]["tekstowe1"].value;
+  let nazwisko = document.forms["formularz"]["tekstowe2"].value;
+  let ulica = document.forms["formularz"]["adresowe1"].value;
+  let dom = document.forms["formularz"]["adresowe2"].value;
+  let mieszkanie = document.forms["formularz"]["adresowe3"].value;
+  let dataurodzenia = document.forms["formularz"]["dataur"].value;
+  let miasto = document.forms["formularz"]["lokacja1"].value;
+  let panstwo = document.forms["formularz"]["lokacja2"].value;
+  const regex1 = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/  
+  const regex2 = /^[a-zA-Z1-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/  
+  if (!regex1.test(imie) || !regex1.test(nazwisko) || !regex1.test(miasto) || !regex1.test(panstwo)) {
+    alert("Niepoprawne dane, użyj jedynie liter");
+    return false;
+  }
+  if (!regex2.test(ulica) || !regex2.test(dom) || !regex2.test(mieszkanie)) {
+    alert("W adresie nie powinny się znajdować znaki specjalne");
+    return false;
+  }
+  if(new Date(dataurodzenia) > new Date()){
+	alert("Wpisz poprawną datę");
+    return false;
+  }
+}
+
+
+	</script>
+
+</body>
+</html>
